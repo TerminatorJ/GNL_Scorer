@@ -68,6 +68,11 @@ for item,result in enumerate(predict_result):
 ```
 
 Output:
+the 0th result is : 2.4192648021191783
+
+
+
+
 
 
 
