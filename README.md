@@ -16,10 +16,11 @@ Add the "oligoarrayaux-3.8" in the cal_deltaG file to you linux environment.
 ```Bash
 export PATH=your_path/cal_deltaG/oligoarrayaux-3.8/bin :$PATH
 ```
- then run the test.py
- 
- if you input file is sevearl sequences run like below:
- in your python script write your_script.py:
+An examlple script was shown in the test.py and the fasta file was used as demo sequence for the test!
+
+There are tow modes for you to use this software: 
+1)If your want to input sevearl sequences run like below:
+In your own python script write ".py" as :
  ```python
 from featurization import featurization
 import sys
