@@ -7,7 +7,7 @@ The efficiency of sgRNA is the genome editing capabilities to target site. All t
 
 Publications:
 
-
+（Add the paper）
 
 
 Usage:
@@ -66,6 +66,11 @@ predict_result=prediction.predict("no_epi",model_dir,this_input)
 for item,result in enumerate(predict_result):
     print("The %dth result is : %s\n" % (item,result))
 ```
+
+Output:
+
+
+
 
 
 
