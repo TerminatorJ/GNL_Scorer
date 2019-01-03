@@ -1,0 +1,131 @@
+VERSION	DATE		COMMENTS
+-------	----		--------
+1.0	2003-06-09	First official version
+
+1.1	2003-06-09	tMin..tMax defaults to 0..100
+
+1.2	2003-06-25	ct-energy reads .ct files with multiple structures
+			hybrid-min & hybrid-ss-min produce valid .ct files when no structure is possible
+			ct-energy parses empty structures correctly
+			dGdHdSTm.pl added to package
+			Makefile dependencies updated
+
+1.3	2003-07-03	--noisolate in hybrid-min
+			hybrid-min uses less memory with --energyOnly
+			compiler warnings of uninitialized variables eliminated
+			command line arguments standardized across all programs
+
+1.4	2003-07-08	compiler warnings about %lg in scanf() eliminated
+			dGdHdSTm2.pl added to package
+			bug fixed: hybrid-ss-min traces bulge/interior loops correctly
+			bug fixed: ct-energy computes exterior dangles of dimers correctly
+
+1.5	2003-07-28	--mfold in hybrid-min
+                        ct-energy displays components of loop energies with two --verbose's
+			--quiet option in hybrid-min, hybrid-ss-min
+
+1.6	2003-10-18	extinctions added to hybrid-min, hybrid-ss-min
+			--dGscale option eliminated
+			hybrid-ss-min, hybrid-min accept multiple sequences delimited by ;
+			machine-readable energy rules renamed to *._[GH], *._[GH]D for Windows compatibility
+
+1.6a	2003-10-24	machine-readable energy rules changed to *_.D[GH], *_.D[GH]D
+
+1.6b	2003-10-27	machine-readable energy rules changed back to *.D[GH], *.D[GH]D
+			human-readable energy rules moved to Rules subdirectory
+
+1.6c	2003-10-31	bug fixed: --quiet works in hybrid-min
+
+1.7	2003-11-06	{0,1,2,3,4} read as {A,C,G,T/U,N}
+
+1.8	2004-02-04	dangling Ns have energy +infinity
+			extra RT ln 2 term added to free energies of homodimers in hybrid-min and ct-energy
+			searching for bulge/interior loops is faster
+			--Vienna option in hybrid-min and ct-energy
+			significant speedups in hybrid-min, hybrid-ss-min
+
+1.9	2004-04-27	--maxbp option in hybrid-ss-min
+			--force option in hybrid-ss-min, hybrid-min
+			--mfold in hybrid-ss-min
+			temperature removed from names of .ct, .asc, .edp, .ann files if tMin + tInc > tMax
+			all programs read FASTA format in addition to raw text
+
+1.9a	2004-05-11	bug fixed: on some platforms version 1.9 ran forever without terminating
+
+1.9b	2004-07-14	removed dependency on -liberty (helps with FreeBSD and MacOSX compatibility)
+
+2.0	2004-11-08	1x1 loops with Watson-Crick or wobble mismatches have energy +infinity
+			2x2 loops with 1 or 2 Watson-Crick or wobble mismatches have energy +infinity
+			extra RT ln 2 term removed from free energies of homodimers
+			hybrid-ss-min and hybrid-min do traceback correctly when dG = 0
+			man pages written for each program
+			autoconf/automake used to make building on various platforms easier
+			prefilter can filter for helices of any length
+			--basepairs option in hybrid-min and hybrid-ss-min
+
+2.1	2005-03-26	all programs read name from FASTA format
+			extended .ct file format (two columns for stacking)
+			tstack, and tstacke replace double dangle
+			NUL, NULD and NULDAT rules created
+			-z/--zip option in hybrid-min replaces -V/--vienna
+			added support for hexaloops (special hairpin loops of size 6)
+			HYBRIDDAT environment variable replaces HYBRIDLIB
+			several bugs fixed
+
+2.2	2005-04-08	1x2 and other interior loops with Watson-Crick mismatches have enery +infinity
+
+2.3	2005-05-25	it's back! RT ln 2 term added (again) for homodimers
+			bug fixed in hybrid-min (multiple pairs of sequences)
+
+2.4	2005-09-15	-q/--quiet works in hybrid-min
+			hybrid-min output includes enthalpy and entropy with -q but not -E
+			dGdHdSTm[2].pl removed from package
+			fixed bug in extrapolation of bulge/interior and hairpin loops >= 30 bases
+			prefilter now requires m of n possible pairs
+			hybrid-min and hybrid-ss-min do integer arithmetic (as in the hybrid package)
+			melt.pl added to package
+
+2.5	2005-10-27	EM programs work correctly on platforms that don't understand 'inf'
+
+3.0	2006-03-10	hybrid-min works correctly if no basepairs are possible
+			-C/--circular option added to hybrid-ss-min
+			ct-energy correctly parses circular molecules
+			--mfold works with multiple sequences in hybrid-ss-min
+			modifications to energy rules simplified: sint2.*, sint4.* and stack.DAT only
+			h-num.pl added to package
+			ct2rnaml added to package
+			miscloop.* includes temperature
+			--stream option added to hybrid(-ss)-min
+			--help and --version work in (almost) all programs
+
+3.1	2006-04-19	sequence files may be in different directories
+			bug fixed: hybrid(-ss)-min --mfold works correctly
+
+3.2	2006-05-25	ct-energy reports +infinity for hairpins of < 3 bases
+			configure accepts --enable-force
+			standard output flushed in quiet mode after each output
+
+3.4	2007-04-25	salt correction added to tstackm and tstacke
+			loops of > 30 bases treated correctly with .DH[D] rules
+			sequence names > 80 characters don't cause crashes
+			--constraints works in hybrid(-ss)-min
+			melt.pl correctly processes options like --nodangle
+
+3.5	2008-02-14	ct2rnaml outputs stacking information
+			added support for prohibit-range constraints of the form "R i-j k-l"
+			new salt correction in polymer mode
+
+3.6	2008-06-22	EM programs check tMin/tInc for infinite loops
+			many minor changes to man pages
+			better support for files in other directories, spaces in paths, etc.
+			Bug fixed: hybrid-min (and thus melt.pl) calculates enthalpies correctly
+
+3.7	2009-07-30	Better error messages for unopenable files
+			Bug fixed: prohibit constraints in hybrid-ss-min
+			2x3 loops are now calculated using tstacki23 tables
+
+3.7a	2010-03-12	salt correction for 1x1 loops corrected
+
+3.8	2010-05-08	several bugs involving circular molecules fixed
+			warnings for unsupported long options
+			errors for corrupt energy or input files

@@ -1,0 +1,10 @@
+hybrid-ss-min 3.8 ran on /hwfssz5/ST_LBI/USER/wangjun/test_py_shell/GNL_Scorer/cal_deltaG/for_deltaG.txt at Wed Jan  2 23:35:14 2019
+
+NA = RNA
+tMin = 37
+tInc = 1
+tMax = 37
+[Na+] = 1
+[Mg++] = 0
+maxloop = 30
+prefilter 2/2

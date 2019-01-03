@@ -1,0 +1,25 @@
+OligoArrayAux v3.8
+
+by Nick Markham & Michael Zuker
+© 2006 Rensselaer Polytechnic Institute
+Troy, NY 12180
+
+OligoArrayAux is an auxilliary package designed for use with the OligoArray software.  The package consists of several C programs and Perl scripts for performing energy minimization calculations on nucleic acid sequences.  OligoArrayAux is a subset of the UNAFold package, which calculates partition functions as well as minimum energies for a full ensemble of species for one or two nucleic acid sequences.
+
+The software is known to build and run properly on the following platforms:
+
+Linux
+FreeBSD
+SGI IRIX
+Sun Solaris
+IBM AIX
+MS Windows (with MinGW or Cygwin)
+MacOSX 10.3
+
+Building and installing the software should be as simple as typing ./configure, make and make install.  By default, the software is installed in /usr/local/bin, /usr/local/man and /usr/local/share, but this can easily be modified with the --prefix option of the configure script.  For example, ./configure --prefix=~ will install the software in the user's home directory.
+
+On many systems, performance can be increased significantly if certain compiler flags are used.  For example, on a machine with an Intel Pentium III processor, type ./configure CFLAGS='-O3 -march=pentium3' to enable Pentium III-specific optimizations as well as architecture-independent optimizations.
+
+The file INSTALL for more detailed information about the usage of the configure script.  In addition to the options described therein, the configure script for OligoArrayAux supports the following option:
+
+--enable-force enables support for force constraints.  Force constraints are disabled by default, which causes the software to run faster.
