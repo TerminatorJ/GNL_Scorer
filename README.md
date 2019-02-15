@@ -16,9 +16,15 @@ Add the "oligoarrayaux-3.8" in the cal_deltaG file to you linux environment.
 ```Bash
 export PATH=your_path/cal_deltaG/oligoarrayaux-3.8/bin :$PATH
 ```
+Then you can use the hybrid-ss-min directly
+
+
+
+
+
 An examlple script was shown in the test.py and the fasta file was used as demo sequence for the test!
 
-There are tow modes for you to use this software: 
+There are two modes for you to use this software: 
 1)If your want to input sevearl sequences run like below:
 In your own python script write ".py" as :
  ```python
@@ -35,7 +41,12 @@ for argv in sys.argv[1:]:
    list_input.append(argv)
 deltaG_result_dir=featurization.cal_deltaG(list_input,cal_deltaG_dir,input_seq=True)
 this_input=featurization.get_input(list_input,deltaG_result_dir,input_seq=True)
-model_dir=os.path.join(root_dir,"model","hela_and_hct116_1_datasets_BR_model_80_train.pickle")
+##if your sequence is from human run the script below
+#model_dir=os.path.join(root_dir,"model","hela_and_hct116_BRR.pickle")
+
+##if your sequence is from other species run the script below
+#model_dir=os.path.join(root_dir,"model","hela_BRR.pickle")
+
 predict_result=prediction.predict("no_epi",model_dir,this_input)
 for item,result in enumerate(predict_result):
     print("the %dth result is : %s\n" % (item,result))
@@ -61,14 +72,27 @@ with open(fasta_dir,"r") as f1:
 deltaG_result_dir=featurization.cal_deltaG(fasta_file,cal_deltaG_dir,input_seq=False)
 print(deltaG_result_dir)
 this_input=featurization.get_input(fasta_file,deltaG_result_dir)
-model_dir=os.path.join(root_dir,"model","hela_and_hct116_1_datasets_BR_model_80_train.pickle")
+##if your sequence is from human run the script below
+#model_dir=os.path.join(root_dir,"model","hela_and_hct116_BRR.pickle")
+
+##if your sequence is from other species run the script below
+#model_dir=os.path.join(root_dir,"model","hela_BRR.pickle")
+
 predict_result=prediction.predict("no_epi",model_dir,this_input)
 for item,result in enumerate(predict_result):
-    print("The %dth result is : %s\n" % (item,result))
+    print("The %dth result is : %s\n" % (item+1,result))
 ```
 
+in your shell/bash run your_script.py:
+```Bash
+your_script.py your_fastafile.fasta
+```
+
+
 Output:
-the 0th result is : 2.4192648021191783
+the 1th result is : 2.4192648021191783
+...
+...
 
 
 
