@@ -46,10 +46,10 @@ def cal_deltaG(seq_file,cal_deltaG_dir,input_seq=False):
     return deltaG_result_dir+".dG"    
 start=time.time()
 ##featurazation
-def get_alphabet(order,raw_alphabet=["A","G","C","T"]):##返回两个碱基的所有排列组合
+def get_alphabet(order,raw_alphabet=["A","G","C","T"]):##
     alphabet=["".join(i) for i in itertools.product(raw_alphabet,repeat=order)]
     return alphabet
-def genera_nucleotide_features(s,order,prefix="",feature_type="all",raw_alphabet=["A","T","G","C"],NGGX=False):##将有位置的和没有位置的二核苷酸特征都列出来
+def genera_nucleotide_features(s,order,prefix="",feature_type="all",raw_alphabet=["A","T","G","C"],NGGX=False):##
     alphabet=get_alphabet(order,raw_alphabet=raw_alphabet)
     features_pos_dependent=np.zeros(len(alphabet)*(len(s)-(order-1)))
     features_pos_independent=np.zeros(np.power(len(raw_alphabet),order))
@@ -75,11 +75,11 @@ def genera_nucleotide_features(s,order,prefix="",feature_type="all",raw_alphabet
         else:
             res=pd.Series(features_pos_independent,index=index_independent)
             return res
-    res=pd.Series(features_pos_dependent,index=index_dependent)#没有特殊情况下返回的是位置依赖的一个Series
+    res=pd.Series(features_pos_dependent,index=index_dependent)#
     return res
 def nucleotide_features_dictionary(prefix=""):
     seqname=["-4","-3","-2","-1"]
-    seqname.extend([str(i) for i in range(1,21)])#在序列前面加了4个碱基，后面加了三个碱基
+    seqname.extend([str(i) for i in range(1,21)])#
     seqname.extend(["N","G","G","+1","+2","+3"])
     orders=[1,2,3]
     sequence_len=30
@@ -101,7 +101,7 @@ def nucleotide_features_dictionary(prefix=""):
             feature_names_indep.append("%s" % letter)
     index_all=index_dependent+index_independent
     feature_all=feature_names_dep+feature_names_indep
-    return dict(zip(index_all,feature_all))#使用两个列表，用zip的方法将两个列表迭代，取出后放入字典当中。
+    return dict(zip(index_all,feature_all))#
 
 def NGGX_interaction_feature(s):
     sequence=s
@@ -112,16 +112,16 @@ def NGGX_interaction_feature(s):
 def apply_NGGX_feature(data):
     NGGX_feat=data["30mer"].apply(NGGX_interaction_feature)
     return NGGX_feat
-def gc_percent(seq):#利用字符串的count函数来得到序列的GC百分含量
+def gc_percent(seq):
     return (seq.count('G') + seq.count('C'))/float(len(seq))
-def countGC_20mer(s, length_audit=True):#利用count函数得到序列中GC的个数
+def countGC_20mer(s, length_audit=True):
     if length_audit:
         assert len(s) == 30, "seems to assume 30mer"
     return s.count("G")+s.count("C")
-def gc_features(data, audit=True):#得到每一条序列的GC个数是否大于10的bool值
-    gc_count=data["30mer"].apply(lambda seq:countGC_20mer(seq, audit))#返回的是一个序列，序列可以变成dataframe
-    gc_count.name="gc_count"#用来设定序列的label
-    gc_above_10=(gc_count>10)*1#直接对series进行操作，返回的是一个Boolean值
+def gc_features(data, audit=True):
+    gc_count=data["30mer"].apply(lambda seq:countGC_20mer(seq, audit))
+    gc_count.name="gc_count"
+    gc_above_10=(gc_count>10)*1
     gc_above_10.name="gc_above_10"
     gc_below_10=(gc_count<10)*1
     gc_below_10.name="gc_below_10"
@@ -129,7 +129,7 @@ def gc_features(data, audit=True):#得到每一条序列的GC个数是否大于1
     data["gc_above_10"]= gc_above_10 
     data["gc_below_10"]=gc_below_10
     return gc_above_10, gc_below_10, gc_count
-def filter_no_30mer(data):#过滤一下没有30base长度的碱基序列
+def filter_no_30mer(data):
     data["30mer"]=data["30mer"].apply(lambda x: x[0:30])
     return data
 def Tm_feature(data,pam_audit=True,learn_options=None):
@@ -154,7 +154,7 @@ def Tm_feature(data,pam_audit=True,learn_options=None):
 
 
 
-def apply_nucleotide_features(seq_data_frame,order,include_pos_independent,prefix=""):#得到有位置独立的和没有位置独立的核酸特征                                                                                                              
+def apply_nucleotide_features(seq_data_frame,order,include_pos_independent,prefix=""):                                                                                                              
     if include_pos_independent:
         feat_pd = seq_data_frame.apply(genera_nucleotide_features, args=(order, prefix, 'pos_dependent'))
         feat_pi = seq_data_frame.apply(genera_nucleotide_features, args=(order, prefix, 'pos_independent'))
@@ -167,7 +167,7 @@ def get_all_order_nuc_features(data,feature_sets,maxorder, max_index_to_use, pre
         nuc_features_pd, nuc_features_pi = apply_nucleotide_features(data, order,prefix=prefix)
         return  nuc_features_pd, nuc_features_pi
 def concat_all_need_feat(data):
-    ##所有的原始特征都必须是pd类型的
+    
     gc_count=gc_features(filter_no_30mer(data), audit=True)[2]##Series
     gc_above_10=gc_features(filter_no_30mer(data), audit=True)[0]##Series
     gc_below_10=gc_features(filter_no_30mer(data), audit=True)[1]##Series
@@ -206,7 +206,7 @@ def five_continuous_base(data):
 #     add_five_con=pd.concat([data,continue_feat],axis=1)
 
 #     return add_five_con
-def apply_three_contiu(seq_data_frame,order,include_pos_independent=True,prefix=""):#得到有位置独立的和没有位置独立的核酸特征                                                                                                              
+def apply_three_contiu(seq_data_frame,order,include_pos_independent=True,prefix=""):                                                                                                              
     if include_pos_independent:
         feat_pd_three_contiu = seq_data_frame.apply(genera_nucleotide_features, args=(order, prefix, 'pos_dependent'))
 #         return feat_pd
@@ -217,7 +217,7 @@ def apply_three_contiu(seq_data_frame,order,include_pos_independent=True,prefix=
 #         feat_pd = seq_data_frame.apply(genera_nucleotide_features, args=(order, prefix, 'pos_dependent'))
 #         assert not np.any(np.isnan(feat_pd)), "found nan in feat_pd"
         return feat_pd
-def deltaG_20mer(data,deltaG_result_dir):#deltaG是直接通过软件计算的
+def deltaG_20mer(data,deltaG_result_dir):
     deltaG_value=[]
     with open(deltaG_result_dir,"r") as f2: 
         all_str=f2.read()
