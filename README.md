@@ -20,27 +20,27 @@ Then you can use the hybrid-ss-min directly
 
 make sure the structure of your direction is like below:
 '''Bash
-....your_script.py
-....cal_deltaG
-        oligoarrayaux-3.8
-            bin
-            ...
-            ...
-........deltaG_result.txt.dG
-........for_deltaG.txt
-....example
-        example_30mer.fasta
-        example_30mer.txt
-....featurization
-        __pycache__
-        featurization.log
-        featurization.py
-....model
-        hela_BRR.pickle
-        hela_and_hct116_BRR.pickle
-....prediction
-        prediction.py
-....readme.md
+....your_script.py  
+....cal_deltaG  
+        oligoarrayaux-3.8  
+            bin  
+            ...  
+            ...  
+........deltaG_result.txt.dG  
+........for_deltaG.txt  
+....example  
+        example_30mer.fasta  
+        example_30mer.txt  
+....featurization  
+        __pycache__  
+        featurization.log  
+        featurization.py  
+....model  
+        hela_BRR.pickle  
+        hela_and_hct116_BRR.pickle  
+....prediction  
+        prediction.py  
+....readme.md  
 ...
 
 
