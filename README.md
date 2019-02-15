@@ -18,7 +18,7 @@ export PATH=your_path/cal_deltaG/oligoarrayaux-3.8/bin :$PATH
 ```
 Then you can use the hybrid-ss-min directly
 
-make sure the structure of your direction is like below:
+make sure the structure of your direction is like below:  
 '''Bash
 ....your_script.py  
 ....cal_deltaG  
