@@ -18,7 +18,7 @@ export PATH=your_path/cal_deltaG/oligoarrayaux-3.8/bin :$PATH
 ```
 Then you can use the hybrid-ss-min directly
 
-make sure the structure of your direction is like below:  
+Make sure the structure of your direction is like below:  
 ```Bash
 your_script.py  
 cal_deltaG  
@@ -43,11 +43,15 @@ prediction
 readme.md  
 ```
 
+Make sure the package was installed in your python3:
+```Bash
+python package: os sys pandas=0.23.4 numpy=1.15.3 time sklearn=0.19.2 Bio=1.72 pickle itertools  
+```
 
 
 
 
-An examlple script was shown in the test.py and the fasta file was used as demo sequence for the test!
+An examlple script was shown in the test.py and you can copy it to your own file of your_script.py!
 
 There are two modes for you to use this software: 
 1)If your want to input sevearl sequences run like below:
@@ -76,13 +80,13 @@ predict_result=prediction.predict("no_epi",model_dir,this_input)
 for item,result in enumerate(predict_result):
     print("the %dth result is : %s\n" % (item,result))
 ```
-in your shell/bash run your_script.py:
+In your shell/bash run your_script.py:
 ```Bash
 your_script.py AACCATGTGACTGTGCATGCTGTACGGCTC ACTCGTGACTGACTAGCTAGGGACTGGCTA
 ```
-note that: the sequence you input following the ".py" show have the length of 30, and the 26th-27th should be the "GG"
+Note that: the sequence you input following the ".py" show have the length of 30, and the 26th-27th should be the "GG"
 
-if your input is a file of fasta:
+If your input is a file of fasta:
 ```python
 from featurization import featurization
 import sys
@@ -108,14 +112,14 @@ for item,result in enumerate(predict_result):
     print("The %dth result is : %s\n" % (item+1,result))
 ```
 
-in your shell/bash run your_script.py:
+In your shell/bash run your_script.py:
 ```Bash
 your_script.py your_fastafile.fasta
 ```
 
 
 Output:
-the 1th result is : 2.4192648021191783
+The 1th result is : 2.4192648021191783
 ...
 ...
 
