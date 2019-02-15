@@ -43,7 +43,7 @@ prediction
 readme.md  
 ```
 
-Make sure the package was installed in your python3:
+Make sure these packages were installed in your python3:
 ```Bash
 python package: os sys pandas=0.23.4 numpy=1.15.3 time sklearn=0.19.2 Bio=1.72 pickle itertools  
 ```
