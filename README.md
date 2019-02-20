@@ -54,7 +54,7 @@ python package: os sys pandas=0.23.4 numpy=1.15.3 time sklearn=0.19.2 Bio=1.72 p
 An examlple script was shown in the test.py and you can copy it to your own file of your_script.py!
 
 There are two modes for you to use this software:  
-1)If your want to input sevearl sequences run like below:
+1) If your want to input sevearl sequences run like below:
 In your own python script write ".py" as :
  ```python
 from featurization import featurization
@@ -86,7 +86,7 @@ your_script.py AACCATGTGACTGTGCATGCTGTACGGCTC ACTCGTGACTGACTAGCTAGGGACTGGCTA
 ```
 Note that: the sequence you input following the ".py" show have the length of 30, and the 26th-27th should be the "GG"
 
-2)If your input is a file of fasta:
+2) If your input is a file of fasta:
 ```python
 from featurization import featurization
 import sys
