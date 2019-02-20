@@ -86,7 +86,7 @@ your_script.py AACCATGTGACTGTGCATGCTGTACGGCTC ACTCGTGACTGACTAGCTAGGGACTGGCTA
 ```
 Note that: the sequence you input following the ".py" show have the length of 30, and the 26th-27th should be the "GG"
 
-If your input is a file of fasta:
+2)If your input is a file of fasta:
 ```python
 from featurization import featurization
 import sys
