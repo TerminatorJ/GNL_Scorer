@@ -2,7 +2,7 @@
 Introduction
 -----------------
 This is a software for sgRNA activity prediction with great generalization  
-The efficiency of sgRNA is the genome editing capabilities to target site. All the sgRNA we designed to target the interesting site in the genome of specific cells,organism,species should cut the upstream sequence of Protospacer Adjacent Motif(PAM). However, not all the sgRNA can be activity in such a process. So, prediction of the efficiency of sgRNA is urgent when applying the knockout(KO) or knockin(KI) experiments in practice. Although there are many prediction algorithms developed by many groups, and they can perform well in specific datasets. However, most of the models can not generalized well in the non-seen datasets, which means the models have bad generalization. Here, we advocate using the dataset using the "powerful" detected method to measure the activity of sgRNA, We trained it used the Bayesian Ridge Regression. This model could have a great performance in practice in spite of the cell types,organisms and species. Maybe it can be used for the new species without developing the algorithm for the sgRNA efficiency, and also suit for the human, mouse, zebra fish, drosophila, elegans with a general performance.   
+The efficiency of sgRNA is the genome editing capabilities to target site. All the sgRNAs we design to target the interesting sites in the genome of specific cells, organism, species should cut the upstream sequence of Protospacer Adjacent Motif(PAM). However, not all the sgRNAs can be imported in such a process. Therefore, prediction of the efficiency of sgRNA is urgent when applying the knockout(KO) or knockin(KI) experiments in practice. Although, there are many prediction algorithms developed by many groups, and they can perform well in specific datasets or specific species. Most of the models can not generalized well in the non-seen datasets and even different species data, which means the models have bad generalization. Here, we suggest using the model trained by "powerful" dataset, which is measured by sequencing base method. We trained it used the Bayesian Ridge Regression. This model could have a great performance in practice in spite of the cell types,organisms and species. Maybe it can be used for the new species without developing the algorithm for the sgRNA efficiency before, and also suit for common species like human, mouse, zebra fish, drosophila, elegans.   
 
 
 Publications:
@@ -45,7 +45,7 @@ readme.md
 
 Make sure these packages were installed in your python3:
 ```Bash
-python package: os sys pandas=0.23.4 numpy=1.15.3 time sklearn=0.19.2 Bio=1.72 pickle itertools  
+python3 package: os sys pandas=0.23.4 numpy=1.15.3 time sklearn=0.19.2 Bio=1.72 pickle itertools  
 ```
 
 
