@@ -1,24 +1,23 @@
 # GNL_Scorer
 Introduction
 -----------------
-This is a software for sgRNA activity prediction with great generalization  
-The efficiency of sgRNA is the genome editing capabilities to target site. All the sgRNAs we design to target the interesting sites in the genome of specific cells, organism, species should cut the upstream sequence of Protospacer Adjacent Motif(PAM). However, not all the sgRNAs can be imported in such a process. Therefore, prediction of the efficiency of sgRNA is urgent when applying the knockout(KO) or knockin(KI) experiments in practice. Although, there are many prediction algorithms developed by many groups, and they can perform well in specific datasets or specific species. Most of the models can not generalized well in the non-seen datasets and even different species data, which means the models have bad generalization. Here, we suggest using the model trained by "powerful" dataset, which is measured by sequencing base method. We trained it used the Bayesian Ridge Regression. This model could have a great performance in practice in spite of the cell types,organisms and species. Maybe it can be used for the new species without developing the algorithm for the sgRNA efficiency before, and also suit for common species like human, mouse, zebra fish, drosophila, elegans.   
+This software is built for sgRNA activities prediction.  
+The efficiency of sgRNAs is the genome editing capabilities to target sites. All the sgRNAs we design to target the potential sites in the genome of specific cells, organisms, species should cut the upstream sequences of Protospacer Adjacent Motif(PAM). However, not all of the sgRNAs can be imported in such a process. Therefore, the prediction of the efficiency of sgRNAs is urgent when applying the knockout(KO) or knockin(KI) experiments in practice. Although, there are quite a few predictive algorithms developed by some groups, but they can just perform well in specific datasets or specific species. Most of the models don't have considerable generalization in the non-seen datasets and even different species data. Here, we suggest using the model trained by "powerful" dataset, which is measured by sequencing. We trained the model by Bayesian Ridge Regression. which could have a great performance in practice in spite of the cell types,organisms and species. Maybe it can be used for those species without developed sgRNA predictive algorithms, and suit for species used most frequently,like human, mouse, zebra fish, drosophila, elegans.   
 
 
 Publications:
 
-（Add the paper）
-
+Wang, J., et al. CRISPR-GNL: an improved model for predicting CRISPR activity by machine learning and featurization. bioRxiv 2019:605790.
 
 Usage:
 
-Add the "oligoarrayaux-3.8" in the cal_deltaG file to you linux environment.
+Adding the "oligoarrayaux-3.8" in the file of cal_deltaG to you linux environment.
 ```Bash
 export PATH=your_path/cal_deltaG/oligoarrayaux-3.8/bin :$PATH
 ```
-Then you can use the hybrid-ss-min directly
+Then you can use the programme of hybrid-ss-min directly
 
-Make sure the structure of your direction is like below:  
+Make sure the file structure under work direction is the same as below:  
 ```Bash
 your_script.py  
 cal_deltaG  
@@ -43,19 +42,20 @@ prediction
 readme.md  
 ```
 
-Make sure these packages were installed in your python3:
+Make sure these packages were installed in your environment:
 ```Bash
+python3
 python3 package: os sys pandas=0.23.4 numpy=1.15.3 time sklearn=0.19.2 Bio=1.72 pickle itertools  
 ```
 
 
 
 
-An examlple script was shown in the test.py and you can copy it to your own file of your_script.py!
+An examlple script can been seen in the test.py and you can follow it step by step!
 
-There are two modes for you to use this software:  
-1) If your want to input sevearl sequences run like below:
-In your own python script write ".py" as :
+There are two modes you can use in this software:  
+1) If you want to input sevearl sequences, you can run the following codes:
+In your own python script, you can write ".py" file as :
  ```python
 from featurization import featurization
 import sys
@@ -80,13 +80,13 @@ predict_result=prediction.predict("no_epi",model_dir,this_input)
 for item,result in enumerate(predict_result):
     print("the %dth result is : %s\n" % (item,result))
 ```
-In your shell/bash run your_script.py:
+In your shell/bash, you can run your_script.py:
 ```Bash
 your_script.py AACCATGTGACTGTGCATGCTGTACGGCTC ACTCGTGACTGACTAGCTAGGGACTGGCTA
 ```
-Note that: the sequence you input following the ".py" show have the length of 30, and the 26th-27th should be the "GG"
+Note that: the sequences you input following as the ".py" have to be as long as 30nt, and the 26th-27th bases should be "GG".
 
-2) If your input is a file of fasta:
+2) If your input sequences are set in a fasta file:
 ```python
 from featurization import featurization
 import sys
@@ -112,7 +112,7 @@ for item,result in enumerate(predict_result):
     print("The %dth result is : %s\n" % (item+1,result))
 ```
 
-In your shell/bash run your_script.py:
+In your shell/bash env, you can run your_script.py:
 ```Bash
 your_script.py your_fastafile.fasta
 ```
