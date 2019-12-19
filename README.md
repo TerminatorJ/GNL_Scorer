@@ -1,8 +1,9 @@
 # GNL_Scorer
 Introduction
 -----------------
-This software is built for sgRNA activities prediction.  
-The efficiency of sgRNAs is the genome editing capabilities to target sites. All the sgRNAs we design to target the potential sites in the genome of specific cells, organisms, species should cut the upstream sequences of Protospacer Adjacent Motif(PAM). However, not all of the sgRNAs can be imported in such a process. Therefore, the prediction of the efficiency of sgRNAs is urgent when applying the knockout(KO) or knockin(KI) experiments in practice. Although, there are quite a few predictive algorithms developed by some groups, but they can just perform well in specific datasets or specific species. Most of the models don't have considerable generalization in the non-seen datasets and even different species data. Here, we suggest using the model trained by "powerful" dataset, which is measured by sequencing. We trained the model by Bayesian Ridge Regression. which could have a great performance in practice in spite of the cell types,organisms and species. Maybe it can be used for those species without developed sgRNA predictive algorithms, and suit for species used most frequently,like human, mouse, zebra fish, drosophila, elegans.   
+This software is built for sgRNA activities prediction.
+The efficiency of sgRNAs is the genome editing capabilities to target sites. All the sgRNAs we design to target the potential sites in the genome of specific cells, organisms, species should cut the upstream sequences of Protospacer Adjacent Motif (PAM). However, not all of the sgRNAs can be imported in such a process. Therefore, the prediction of the efficiency of sgRNAs is urgent when applying the knockout (KO) or knockin (KI) experiments in practice. Although, there are quite a few predictive algorithms developed by some groups, but they can just perform well in specific datasets or specific species. Most of the models don't have considerable generalization in the non-seen datasets and even different species data. Here, we suggest using the model trained by "powerful" dataset, which is measured by sequencing. We trained the model by Bayesian Ridge Regression. which could have a great performance in practice in spite of the cell types, organisms and species. Maybe it can be used for those species without developed sgRNA predictive algorithms, and suit for species used most frequently, like human, mouse, zebra fish, drosophila, elegans.
+ 
 
 
 Publications:
@@ -16,8 +17,8 @@ Adding the "oligoarrayaux-3.8" in the file of cal_deltaG to you linux environmen
 export PATH=your_path/cal_deltaG/oligoarrayaux-3.8/bin :$PATH
 ```
 Then you can use the programme of hybrid-ss-min directly
-
-Make sure the file structure under work direction is the same as below:  
+Make sure the file structure under work direction is the same as below:
+ 
 ```Bash
 your_script.py  
 cal_deltaG  
@@ -47,15 +48,10 @@ Make sure these packages were installed in your environment:
 python3
 python3 package: os sys pandas=0.23.4 numpy=1.15.3 time sklearn=0.19.2 Bio=1.72 pickle itertools  
 ```
+An example script can be seen in the test.py and you can follow it step by step!
+There are two modes you can use in this software:
+1.If you want to input several sequences, you can run the following codes: In your own python script, you can write ".py" file as:
 
-
-
-
-An examlple script can been seen in the test.py and you can follow it step by step!
-
-There are two modes you can use in this software:  
-1) If you want to input sevearl sequences, you can run the following codes:
-In your own python script, you can write ".py" file as :
  ```python
 from featurization import featurization
 import sys
