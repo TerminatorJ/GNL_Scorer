@@ -8,7 +8,7 @@ The efficiency of sgRNAs is the genome editing capabilities to target sites. All
 
 Publications:
 
-Wang, J., et al. CRISPR-GNL: an improved model for predicting CRISPR activity by machine learning and featurization. bioRxiv 2019:605790.
+Wang J, Xiang X, Bolund L, et al. GNL-Scorer: A generalized model for predicting CRISPR on-target activity by machine learning and featurization[J]. Journal of Molecular Cell Biology, 2020.
 
 Usage:
 
