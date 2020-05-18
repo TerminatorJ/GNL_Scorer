@@ -10,6 +10,9 @@ Publications:
 
 Wang J, Xiang X, Bolund L, et al. GNL-Scorer: A generalized model for predicting CRISPR on-target activity by machine learning and featurization[J]. Journal of Molecular Cell Biology, 2020.
 
+# Note:
+This tool has been refreshed into a new version, please get accesse to https://github.com/TerminatorJ/CRISPR-TRAP-seq to get a solid result to facilitate your experiment.
+
 Usage:
 
 Adding the "oligoarrayaux-3.8" in the file of cal_deltaG to you linux environment.
